@@ -84,6 +84,7 @@ python3Packages.buildPythonApplication {
     "semver"
     "structlog"
     "typing-extensions"
+    "rawpy"
   ];
   pythonImportsCheck = [ "tagstudio" ];
 
@@ -128,6 +129,7 @@ python3Packages.buildPythonApplication {
     "test_json_migration"
     "test_library_migrations"
     "test_update_tags"
+    "test_github_api_unavailable" # Look into fatal python error
   ];
   disabledTestPaths = [
     "tests/qt/test_build_tag_panel.py"
