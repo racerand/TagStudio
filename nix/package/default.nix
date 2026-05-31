@@ -89,6 +89,7 @@ python3Packages.buildPythonApplication {
     "structlog"
     "typing-extensions"
     "rawpy"
+    "send2trash"
   ];
   pythonImportsCheck = [ "tagstudio" ];
 
