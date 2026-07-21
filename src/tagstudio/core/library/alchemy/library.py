@@ -1061,7 +1061,9 @@ class Library:
         with Session(self.engine) as session:
             return unwrap(session.scalar(select(func.count(Entry.id))))
 
-    def __all_entries(self, session: Session, with_joins: bool = False) -> Iterator[Entry]:
+    def __all_entries(
+        self, session: Session, with_joins: bool = False, close_session: bool = False
+    ) -> Iterator[Entry]:
         """Load entries without joins."""
         stmt = select(Entry)
         if with_joins:
@@ -1087,10 +1089,13 @@ class Library:
             yield entry
             session.expunge(entry)
 
+        if close_session:
+            session.close()
+
     def all_entries(self, with_joins: bool = False) -> Iterator[Entry]:
         """Load entries without joins."""
         with Session(self.engine) as session:
-            return self.__all_entries(session, with_joins)
+            return self.__all_entries(session, with_joins, close_session=True)
 
     @property
     def tags(self) -> list[Tag]:
