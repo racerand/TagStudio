@@ -55,6 +55,7 @@ python3Packages.buildPythonApplication {
       py7zr
       pydantic
       pydub
+      pygments
       pyside6
       rarfile
       rawpy
@@ -105,6 +106,7 @@ python3Packages.buildPythonApplication {
     "pillow-heif"
     "pillow-jxl-plugin"
     "py7zr"
+    "pygments"
     "pyside6"
     "rarfile"
     "rawpy"
